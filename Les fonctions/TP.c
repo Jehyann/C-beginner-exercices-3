@@ -28,3 +28,79 @@
 // 4- Utiliser cette dernière fonction pour redemander à l’utilisateur une saisie temps qu’elle n’est pas
 // valide.
 // 5- Utiliser ces fonctions dans la boucle de jeu de la fonction main
+
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+
+char currentPlayer = 'X';
+// char winner = '.';
+
+int coord_x, coord_y;
+char grid[3][3]= {
+{'.','.','.'},
+{'.','.','.'},
+{'.','.','.'}
+};
+
+void checkAvailable() {
+    if (grid[coord_x][coord_y] == '.') {
+        grid[coord_x][coord_y] = currentPlayer;
+    }
+    else {
+        printf("Oops player is already at that spot.");
+    }
+}
+
+void playerMove(){
+    // take player input
+    printf("Player X, where do you want to play (x y) ? ");
+    scanf("%d %d", &coord_x, &coord_y);
+    // check if grid taken 
+    checkAvailable();
+}
+
+// void player2Move(){
+//     char player2 = 'O';
+//     
+
+//     // take player input
+//     printf("Player O, where do you want to play (x y) ? ");
+//     scanf("%d %d", &coord_x, &coord_y);
+//     // check if grid taken 
+//     if (grid[coord_x][coord_y] == '.') {
+//         grid[coord_x][coord_y] = currentPlayer;
+//     }
+//     else {
+//         printf("Oops player is already at that spot.");
+//     }
+
+// }
+
+// to print board
+void printBoard(char grid[3][3]) {
+    // print board grid
+    printf(
+    "%c | %c | %c \n"
+    "--+---+---\n"
+    "%c | %c | %c \n"
+    "--+---+---\n"
+    "%c | %c | %c \n"
+    "\n",
+    grid[0][0], grid[0][1], grid[0][2],
+    grid[1][0], grid[1][1], grid[1][2],
+    grid[2][0], grid[2][1], grid[2][2]);
+}
+
+int main() {
+
+    printf("\nTP: Les fonctions\n\n");
+    printBoard(char grid[3][3]);
+    player1Move();
+
+
+    return 0;
+}
+
+
